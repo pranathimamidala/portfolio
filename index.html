@@ -7,245 +7,495 @@
     <title>Pranathi Mamidala | Aspiring Software Engineer</title>
 
     <meta name="description"
-          content="Portfolio of Pranathi Mamidala, a B.Tech Computer Science and Engineering student and aspiring software engineer.">
+          content="Portfolio of Pranathi Mamidala, a B.Tech Computer Science student and aspiring software engineer.">
 
     <style>
+
+        /* =========================================================
+           RESET
+        ========================================================= */
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
             scroll-behavior: smooth;
         }
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background: #f8faff;
-            color: #202124;
+            background: #05070d;
+            color: #f5f7fb;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* NAVIGATION */
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        /* =========================================================
+           VARIABLES
+        ========================================================= */
+
+        :root {
+            --bg: #05070d;
+            --bg-soft: #080c15;
+            --card: rgba(15, 21, 34, 0.72);
+            --card-solid: #0d1421;
+            --border: rgba(255, 255, 255, 0.09);
+
+            --text: #f5f7fb;
+            --muted: #929bad;
+
+            --accent: #42a5ff;
+            --accent-light: #70c3ff;
+            --accent-dark: #1266b3;
+
+            --radius: 22px;
+            --max-width: 1180px;
+        }
+
+        /* =========================================================
+           BACKGROUND
+        ========================================================= */
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -3;
+
+            background-image:
+                linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+
+            background-size: 50px 50px;
+            mask-image: linear-gradient(to bottom, black, transparent 85%);
+        }
+
+        .glow {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: rgba(39, 137, 230, 0.12);
+            filter: blur(120px);
+            pointer-events: none;
+            z-index: -2;
+        }
+
+        .glow-one {
+            top: -200px;
+            left: -180px;
+        }
+
+        .glow-two {
+            top: 45%;
+            right: -250px;
+            background: rgba(92, 61, 255, 0.08);
+        }
+
+        /* =========================================================
+           CONTAINER
+        ========================================================= */
+
+        .container {
+            width: min(var(--max-width), calc(100% - 40px));
+            margin: auto;
+        }
+
+        /* =========================================================
+           NAVBAR
+        ========================================================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+
+            background: rgba(5, 7, 13, 0.72);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
 
         nav {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(255,255,255,0.96);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #e5e7eb;
-        }
+            height: 78px;
 
-        .nav-container {
-            max-width: 1150px;
-            margin: auto;
-            padding: 18px 25px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
         }
 
         .logo {
-            font-size: 25px;
-            font-weight: bold;
-            color: #1a73e8;
+            font-size: 21px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent);
         }
 
         .nav-links {
             display: flex;
-            gap: 26px;
+            gap: 32px;
             list-style: none;
         }
 
         .nav-links a {
-            text-decoration: none;
-            color: #3c4043;
-            font-size: 15px;
-            transition: 0.3s;
+            color: var(--muted);
+            font-size: 14px;
+            transition: 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: #1a73e8;
+            color: white;
         }
 
-        /* HERO */
+        .nav-button {
+            border: 1px solid rgba(66,165,255,0.4);
+            padding: 10px 17px;
+            border-radius: 10px;
+            color: var(--accent-light) !important;
+        }
+
+        .nav-button:hover {
+            background: rgba(66,165,255,0.1);
+        }
+
+        .menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        /* =========================================================
+           HERO
+        ========================================================= */
 
         .hero {
-            min-height: 90vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 70px 25px;
-            background:
-                radial-gradient(circle at 85% 20%, #dbeafe 0, transparent 30%),
-                radial-gradient(circle at 10% 80%, #e0e7ff 0, transparent 30%),
-                #f8faff;
+
+            padding-top: 110px;
+            padding-bottom: 80px;
         }
 
-        .hero-container {
-            max-width: 1100px;
-            width: 100%;
-            margin: auto;
+        .hero-grid {
             display: grid;
-            grid-template-columns: 1.4fr 1fr;
-            gap: 60px;
+            grid-template-columns: 1.25fr 0.75fr;
+            gap: 80px;
             align-items: center;
         }
 
-        .hero-text h2:first-child {
-            color: #5f6368;
-            font-size: 22px;
-            font-weight: 500;
+        .eyebrow {
+            color: var(--accent-light);
+            font-size: 13px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 700;
+
+            margin-bottom: 24px;
         }
 
-        .hero-text h1 {
-            font-size: clamp(45px, 7vw, 75px);
-            line-height: 1.05;
-            margin: 10px 0 20px;
+        .hero h1 {
+            font-size: clamp(52px, 8vw, 92px);
+            line-height: 0.95;
+            letter-spacing: -5px;
+            margin-bottom: 25px;
         }
 
-        .hero-text h1 span {
-            color: #1a73e8;
+        .hero h1 span {
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(255,255,255,0.45);
         }
 
-        .hero-text .role {
-            font-size: 25px;
-            color: #5f6368;
-            margin-bottom: 12px;
-        }
-
-        .tagline {
-            color: #1a73e8;
+        .hero-role {
+            font-size: 23px;
             font-weight: 600;
-            font-size: 18px;
             margin-bottom: 15px;
+        }
+
+        .hero-role span {
+            color: var(--accent);
         }
 
         .hero-description {
             max-width: 620px;
-            font-size: 18px;
-            color: #5f6368;
-            margin-bottom: 30px;
+            color: var(--muted);
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 32px;
         }
 
-        .buttons {
+        .hero-buttons {
             display: flex;
-            gap: 15px;
+            gap: 14px;
             flex-wrap: wrap;
         }
 
         .btn {
-            display: inline-block;
-            padding: 13px 25px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 13px 22px;
+            border-radius: 11px;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            transition: 0.3s ease;
         }
 
         .btn-primary {
-            background: #1a73e8;
-            color: white;
+            background: var(--accent);
+            color: #03101d;
         }
 
         .btn-primary:hover {
-            background: #1557b0;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(66,165,255,0.25);
         }
 
-        .btn-secondary {
-            border: 1px solid #dadce0;
-            color: #202124;
-            background: white;
+        .btn-outline {
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.025);
+            color: white;
         }
 
-        .btn-secondary:hover {
-            border-color: #1a73e8;
-            color: #1a73e8;
+        .btn-outline:hover {
+            border-color: rgba(66,165,255,0.5);
+            transform: translateY(-3px);
         }
 
-        /* PROFILE CARD */
+        /* =========================================================
+           PROFILE
+        ========================================================= */
 
-        .hero-card {
-            background: white;
-            padding: 35px;
-            border-radius: 25px;
-            box-shadow: 0 15px 45px rgba(60,64,67,0.12);
-            text-align: center;
+        .hero-photo {
+            display: flex;
+            justify-content: center;
         }
 
-        .profile-circle {
-            width: 210px;
-            height: 210px;
-            margin: auto auto 25px;
-            border-radius: 50%;
+        .photo-wrapper {
+            width: 330px;
+            height: 400px;
+
+            position: relative;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid rgba(66,165,255,0.28);
+            border-radius: 30px;
+
+            background:
+                linear-gradient(145deg,
+                rgba(66,165,255,0.12),
+                rgba(255,255,255,0.015));
+
+            box-shadow:
+                0 35px 100px rgba(0,0,0,0.45),
+                inset 0 0 50px rgba(66,165,255,0.04);
+
             overflow: hidden;
-            box-shadow: 0 8px 25px rgba(26,115,232,0.20);
         }
 
-        .profile-circle img {
-            width: 100%;
-            height: 100%;
+        .photo-wrapper::before {
+            content: "";
+            position: absolute;
+
+            width: 230px;
+            height: 230px;
+
+            border-radius: 50%;
+
+            background: rgba(66,165,255,0.16);
+            filter: blur(50px);
+        }
+
+        .photo-wrapper img {
+            position: relative;
+            z-index: 2;
+
+            width: 270px;
+            height: 330px;
+
             object-fit: cover;
-            display: block;
+
+            border-radius: 22px;
+
+            border: 1px solid rgba(255,255,255,0.12);
+
+            box-shadow: 0 25px 60px rgba(0,0,0,0.45);
         }
 
-        .hero-card h3 {
+        .availability {
+            position: absolute;
+            bottom: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            z-index: 5;
+
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            padding: 9px 14px;
+
+            background: rgba(5,7,13,0.88);
+            border: 1px solid rgba(255,255,255,0.1);
+
+            border-radius: 50px;
+
+            font-size: 12px;
+            color: #dbe3ee;
+
+            white-space: nowrap;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+            background: #45d483;
+
+            box-shadow: 0 0 12px rgba(69,212,131,0.8);
+        }
+
+        /* =========================================================
+           QUICK STATS
+        ========================================================= */
+
+        .stats {
+            margin-top: 70px;
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stat {
+            padding: 27px 20px;
+
+            border-right: 1px solid var(--border);
+        }
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+        .stat-number {
             font-size: 25px;
-            margin-bottom: 7px;
+            font-weight: 800;
+            margin-bottom: 3px;
         }
 
-        .hero-card p {
-            color: #5f6368;
+        .stat-label {
+            color: var(--muted);
+            font-size: 12px;
         }
 
-        /* GENERAL SECTIONS */
+        /* =========================================================
+           SECTIONS
+        ========================================================= */
 
         section {
-            padding: 90px 25px;
+            padding: 120px 0;
         }
 
-        .section-container {
-            max-width: 1100px;
-            margin: auto;
+        .section-heading {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 30px;
+
+            margin-bottom: 55px;
+        }
+
+        .section-number {
+            color: var(--accent);
+            font-size: 12px;
+            letter-spacing: 2px;
+            font-weight: 700;
         }
 
         .section-title {
-            text-align: center;
-            margin-bottom: 50px;
+            font-size: clamp(36px, 5vw, 60px);
+            line-height: 1;
+            letter-spacing: -2px;
         }
 
-        .section-title h2 {
-            font-size: 38px;
-            margin-bottom: 10px;
+        .section-subtitle {
+            margin-top: 15px;
+            color: var(--muted);
+            max-width: 650px;
         }
 
-        .section-title p {
-            color: #5f6368;
-        }
-
-        /* ABOUT */
+        /* =========================================================
+           ABOUT
+        ========================================================= */
 
         .about-grid {
             display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: 35px;
+            grid-template-columns: 1.3fr 0.7fr;
+            gap: 25px;
         }
 
-        .about-card {
-            background: white;
+        .about-card,
+        .info-card {
             padding: 35px;
-            border-radius: 20px;
-            border: 1px solid #e8eaed;
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+
+            background: var(--card);
+
+            backdrop-filter: blur(15px);
+
+            transition: 0.35s ease;
         }
 
-        .about-card h3 {
-            color: #1a73e8;
-            margin-bottom: 15px;
-            font-size: 23px;
+        .about-card:hover,
+        .info-card:hover,
+        .skill-card:hover,
+        .project-card:hover {
+            border-color: rgba(66,165,255,0.3);
+            transform: translateY(-5px);
         }
 
         .about-card p {
-            color: #5f6368;
+            color: #aeb6c5;
+            font-size: 16px;
+            line-height: 1.9;
+            margin-bottom: 18px;
+        }
+
+        .about-card p:last-child {
+            margin-bottom: 0;
         }
 
         .info-list {
@@ -253,248 +503,631 @@
         }
 
         .info-list li {
-            padding: 13px 0;
-            border-bottom: 1px solid #eee;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
+
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+
+            font-size: 14px;
         }
 
         .info-list li:last-child {
             border-bottom: none;
         }
 
-        /* EDUCATION */
-
-        .education-card {
-            background: white;
-            padding: 30px;
-            margin-bottom: 20px;
-            border-radius: 18px;
-            border-left: 5px solid #1a73e8;
-            box-shadow: 0 5px 20px rgba(60,64,67,0.07);
+        .info-label {
+            color: var(--muted);
         }
 
-        .education-card h3 {
+        .info-value {
+            text-align: right;
+            font-weight: 600;
+        }
+
+        /* =========================================================
+           EDUCATION
+        ========================================================= */
+
+        .timeline {
+            position: relative;
+            margin-left: 12px;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+
+            left: 7px;
+            top: 5px;
+            bottom: 5px;
+
+            width: 1px;
+
+            background: linear-gradient(
+                to bottom,
+                var(--accent),
+                rgba(66,165,255,0.05)
+            );
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 45px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+
+            left: 0;
+            top: 5px;
+
+            width: 15px;
+            height: 15px;
+
+            border-radius: 50%;
+
+            background: var(--accent);
+
+            box-shadow:
+                0 0 0 5px rgba(66,165,255,0.1),
+                0 0 20px rgba(66,165,255,0.4);
+        }
+
+        .timeline-year {
+            color: var(--accent);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .timeline-item h3 {
             font-size: 22px;
             margin-bottom: 5px;
         }
 
-        .education-card p {
-            color: #5f6368;
+        .timeline-item p {
+            color: var(--muted);
+            font-size: 14px;
         }
 
-        .education-year {
-            color: #1a73e8 !important;
-            font-weight: bold;
+        .score {
+            display: inline-block;
+            margin-top: 12px;
+
+            padding: 6px 11px;
+
+            border-radius: 7px;
+
+            background: rgba(66,165,255,0.08);
+            color: var(--accent-light);
+
+            font-size: 12px;
+            font-weight: 700;
         }
 
-        /* SKILLS */
+        /* =========================================================
+           SKILLS
+        ========================================================= */
 
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .skill-card {
-            background: white;
-            padding: 30px;
-            border-radius: 18px;
-            border: 1px solid #e8eaed;
-            transition: 0.3s;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(60,64,67,0.1);
-        }
-
-        .skill-card h3 {
-            color: #1a73e8;
-            margin-bottom: 15px;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .skill-tag {
-            background: #e8f0fe;
-            color: #1967d2;
-            padding: 7px 12px;
-            border-radius: 20px;
-            font-size: 14px;
-        }
-
-        /* PROJECTS */
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-        }
-
-        .project-card {
-            background: white;
-            padding: 35px;
-            border-radius: 20px;
-            border: 1px solid #e8eaed;
-        }
-
-        .project-card h3 {
-            font-size: 22px;
-            margin-bottom: 12px;
-        }
-
-        .project-card p {
-            color: #5f6368;
-            margin-bottom: 20px;
-        }
-
-        .project-status {
-            display: inline-block;
-            padding: 6px 12px;
-            background: #fff3cd;
-            color: #856404;
-            border-radius: 15px;
-            font-size: 13px;
-        }
-
-        /* CODING PROFILES */
-
-        .profiles-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
             gap: 18px;
         }
 
-        .profile-link {
-            background: white;
-            padding: 22px;
-            border-radius: 15px;
-            text-decoration: none;
-            color: #202124;
-            border: 1px solid #e8eaed;
+        .skill-card {
+            padding: 28px;
+
+            min-height: 190px;
+
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+
+            transition: 0.35s ease;
+        }
+
+        .skill-icon {
+            width: 44px;
+            height: 44px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 12px;
+
+            background: rgba(66,165,255,0.1);
+            color: var(--accent);
+
+            font-size: 18px;
+            font-weight: 800;
+
+            margin-bottom: 20px;
+        }
+
+        .skill-card h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .skill-card p {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .skill-tags {
+            margin-top: 17px;
+
+            display: flex;
+            gap: 7px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 5px 9px;
+
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 6px;
+
+            color: #b7c0ce;
+            font-size: 11px;
+        }
+
+        /* =========================================================
+           PROJECT
+        ========================================================= */
+
+        .project-card {
+            position: relative;
+
+            padding: 42px;
+
+            border-radius: 26px;
+
+            border: 1px solid var(--border);
+
+            background:
+                radial-gradient(
+                    circle at top right,
+                    rgba(66,165,255,0.12),
+                    transparent 35%
+                ),
+                var(--card);
+
+            transition: 0.35s ease;
+
+            overflow: hidden;
+        }
+
+        .project-top {
             display: flex;
             justify-content: space-between;
+            align-items: flex-start;
+
+            gap: 30px;
+        }
+
+        .project-number {
+            color: var(--accent);
+            font-size: 12px;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        .project-card h3 {
+            font-size: 32px;
+            margin: 14px 0;
+        }
+
+        .project-card p {
+            max-width: 750px;
+
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        .project-status {
+            padding: 8px 12px;
+
+            border-radius: 50px;
+
+            background: rgba(66,165,255,0.08);
+            color: var(--accent-light);
+
+            font-size: 11px;
+            white-space: nowrap;
+        }
+
+        .project-tech {
+            display: flex;
+            gap: 9px;
+            flex-wrap: wrap;
+
+            margin-top: 25px;
+        }
+
+        /* =========================================================
+           CODING PROFILES
+        ========================================================= */
+
+        .profiles-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 14px;
+        }
+
+        .profile-card {
+            padding: 25px 18px;
+
+            text-align: center;
+
+            border: 1px solid var(--border);
+            border-radius: 17px;
+
+            background: rgba(255,255,255,0.025);
+
+            transition: 0.3s ease;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(66,165,255,0.35);
+            background: rgba(66,165,255,0.05);
+        }
+
+        .profile-letter {
+            width: 44px;
+            height: 44px;
+
+            margin: 0 auto 14px;
+
+            display: flex;
             align-items: center;
-            transition: 0.3s;
+            justify-content: center;
+
+            border-radius: 12px;
+
+            background: rgba(66,165,255,0.1);
+            color: var(--accent);
+
+            font-weight: 800;
         }
 
-        .profile-link:hover {
-            border-color: #1a73e8;
-            transform: translateX(5px);
+        .profile-card h3 {
+            font-size: 14px;
+            margin-bottom: 5px;
         }
 
-        .profile-link span {
-            color: #1a73e8;
+        .profile-card p {
+            color: var(--muted);
+            font-size: 11px;
         }
 
-        /* CONTACT */
+        /* =========================================================
+           CERTIFICATIONS / ACHIEVEMENTS
+        ========================================================= */
+
+        .empty-state {
+            padding: 55px;
+
+            text-align: center;
+
+            border: 1px dashed rgba(255,255,255,0.12);
+            border-radius: var(--radius);
+
+            background: rgba(255,255,255,0.015);
+        }
+
+        .empty-state h3 {
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .empty-state p {
+            max-width: 570px;
+            margin: auto;
+
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* =========================================================
+           CONTACT
+        ========================================================= */
 
         .contact-box {
-            max-width: 750px;
-            margin: auto;
-            background: #1a73e8;
-            color: white;
-            padding: 50px;
-            border-radius: 25px;
+            padding: 55px;
+
+            border-radius: 28px;
+
+            border: 1px solid rgba(66,165,255,0.18);
+
+            background:
+                radial-gradient(
+                    circle at top left,
+                    rgba(66,165,255,0.12),
+                    transparent 40%
+                ),
+                rgba(12,18,29,0.75);
+
             text-align: center;
         }
 
         .contact-box h2 {
-            font-size: 35px;
+            font-size: clamp(36px, 6vw, 65px);
+            letter-spacing: -2px;
             margin-bottom: 15px;
         }
 
         .contact-box p {
-            margin-bottom: 25px;
-            opacity: 0.95;
+            color: var(--muted);
+            max-width: 600px;
+            margin: auto;
         }
 
-        .contact-email {
-            display: inline-block;
-            background: white;
-            color: #1a73e8;
-            padding: 13px 25px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
+        .contact-links {
+            margin-top: 30px;
+
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
         }
 
-        /* FOOTER */
+        .contact-link {
+            padding: 12px 18px;
+
+            border-radius: 10px;
+
+            border: 1px solid var(--border);
+
+            background: rgba(255,255,255,0.03);
+
+            font-size: 13px;
+
+            transition: 0.3s ease;
+        }
+
+        .contact-link:hover {
+            border-color: rgba(66,165,255,0.4);
+            color: var(--accent-light);
+            transform: translateY(-3px);
+        }
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
 
         footer {
-            text-align: center;
-            padding: 30px;
-            background: #202124;
-            color: #bdc1c6;
+            padding: 35px 0;
+
+            border-top: 1px solid var(--border);
+
+            color: var(--muted);
+            font-size: 12px;
         }
 
-        /* MOBILE */
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
 
-        @media (max-width: 800px) {
+        .footer-brand {
+            color: white;
+            font-weight: 700;
+        }
 
-            .nav-container {
-                flex-direction: column;
-                gap: 15px;
+        /* =========================================================
+           ANIMATIONS
+        ========================================================= */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition:
+                opacity 0.8s ease,
+                transform 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 950px) {
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 55px;
             }
 
-            .nav-links {
-                gap: 15px;
-                flex-wrap: wrap;
-                justify-content: center;
+            .hero-photo {
+                order: -1;
             }
 
-            .hero-container,
-            .about-grid,
-            .projects-grid {
+            .photo-wrapper {
+                width: 280px;
+                height: 340px;
+            }
+
+            .photo-wrapper img {
+                width: 225px;
+                height: 280px;
+            }
+
+            .about-grid {
                 grid-template-columns: 1fr;
             }
 
             .skills-grid {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .profiles-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(3, 1fr);
             }
 
-            .hero-text {
-                text-align: center;
-            }
-
-            .hero-description {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .buttons {
-                justify-content: center;
+            .section-heading {
+                grid-template-columns: 100px 1fr;
             }
         }
 
-        @media (max-width: 500px) {
+        @media (max-width: 700px) {
+
+            .container {
+                width: min(100% - 28px, var(--max-width));
+            }
+
+            nav {
+                height: 70px;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+
+                top: 70px;
+                left: 14px;
+                right: 14px;
+
+                display: none;
+                flex-direction: column;
+
+                padding: 18px;
+
+                background: rgba(8,12,21,0.97);
+
+                border: 1px solid var(--border);
+                border-radius: 16px;
+
+                gap: 5px;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 12px;
+            }
+
+            .nav-button {
+                text-align: center;
+            }
+
+            .hero {
+                padding-top: 110px;
+            }
+
+            .hero h1 {
+                font-size: 55px;
+                letter-spacing: -3px;
+            }
+
+            .hero-role {
+                font-size: 19px;
+            }
+
+            .hero-description {
+                font-size: 15px;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat:nth-child(2) {
+                border-right: none;
+            }
+
+            .stat:nth-child(-n+2) {
+                border-bottom: 1px solid var(--border);
+            }
+
+            section {
+                padding: 80px 0;
+            }
+
+            .section-heading {
+                display: block;
+            }
+
+            .section-number {
+                margin-bottom: 15px;
+                display: block;
+            }
+
+            .section-title {
+                font-size: 42px;
+            }
 
             .skills-grid {
                 grid-template-columns: 1fr;
             }
 
-            section {
-                padding: 65px 18px;
+            .profiles-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
-            .hero-card {
-                padding: 25px;
+            .project-card {
+                padding: 28px;
             }
 
-            .profile-circle {
-                width: 180px;
-                height: 180px;
+            .project-top {
+                flex-direction: column;
+            }
+
+            .project-card h3 {
+                font-size: 27px;
             }
 
             .contact-box {
                 padding: 35px 20px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 430px) {
+
+            .hero h1 {
+                font-size: 46px;
+            }
+
+            .profiles-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .profile-card {
+                padding: 20px 10px;
+            }
+
+            .about-card,
+            .info-card {
+                padding: 25px;
             }
         }
 
@@ -503,289 +1136,1025 @@
 
 <body>
 
-    <!-- NAVIGATION -->
+    <div class="glow glow-one"></div>
+    <div class="glow glow-two"></div>
 
-    <nav>
-        <div class="nav-container">
 
-            <div class="logo">PM.</div>
+    <!-- =========================================================
+         NAVIGATION
+    ========================================================== -->
 
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#profiles">Profiles</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+    <header>
+
+        <div class="container">
+
+            <nav>
+
+                <a href="#home" class="logo">
+                    PM<span>.</span>
+                </a>
+
+                <button class="menu-btn" id="menuBtn">
+                    ☰
+                </button>
+
+                <ul class="nav-links" id="navLinks">
+
+                    <li>
+                        <a href="#about">About</a>
+                    </li>
+
+                    <li>
+                        <a href="#education">Education</a>
+                    </li>
+
+                    <li>
+                        <a href="#skills">Skills</a>
+                    </li>
+
+                    <li>
+                        <a href="#projects">Projects</a>
+                    </li>
+
+                    <li>
+                        <a href="#profiles">Profiles</a>
+                    </li>
+
+                    <li>
+                        <a href="#contact" class="nav-button">
+                            Contact
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
 
         </div>
-    </nav>
+
+    </header>
 
 
-    <!-- HOME -->
+    <!-- =========================================================
+         HERO
+    ========================================================== -->
 
-    <section class="hero" id="home">
+    <main>
 
-        <div class="hero-container">
+        <section class="hero" id="home">
 
-            <div class="hero-text">
+            <div class="container">
 
-                <h2>Hello, I'm</h2>
+                <div class="hero-grid">
 
-                <h1>
-                    Pranathi<br>
-                    <span>Mamidala</span>
-                </h1>
+                    <div class="hero-content reveal">
 
-                <h2 class="role">
-                    Aspiring Software Engineer
-                </h2>
+                        <div class="eyebrow">
+                            01 / Portfolio
+                        </div>
 
-                <p class="tagline">
-                    Learning. Building. Growing Every Day.
-                </p>
+                        <h1>
+                            PRANATHI<br>
+                            <span>MAMIDALA</span>
+                        </h1>
 
-                <p class="hero-description">
-                    I'm a second-year B.Tech Computer Science and
-                    Engineering student passionate about programming,
-                    problem solving and building useful technology.
-                </p>
+                        <div class="hero-role">
+                            B.Tech CSE Student
+                            <span>·</span>
+                            Aspiring Software Engineer
+                        </div>
 
-                <div class="buttons">
+                        <p class="hero-description">
+                            Learning. Building. Growing Every Day.
+                            I'm a Computer Science student interested in
+                            software development, problem solving and
+                            building useful digital solutions.
+                        </p>
 
-                    <a href="#projects" class="btn btn-primary">
-                        View My Work
+                        <div class="hero-buttons">
+
+                            <a href="#projects" class="btn btn-primary">
+                                Explore My Work
+                            </a>
+
+                            <a href="#contact" class="btn btn-outline">
+                                Get In Touch
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="hero-photo reveal">
+
+                        <div class="photo-wrapper">
+
+                            <img
+                                src="profile.jpg"
+                                alt="Pranathi Mamidala"
+                            >
+
+                            <div class="availability">
+
+                                <span class="status-dot"></span>
+
+                                Currently Learning & Building
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- QUICK STATS -->
+
+                <div class="stats reveal">
+
+                    <div class="stat">
+
+                        <div class="stat-number">
+                            2nd
+                        </div>
+
+                        <div class="stat-label">
+                            Year B.Tech CSE
+                        </div>
+
+                    </div>
+
+                    <div class="stat">
+
+                        <div class="stat-number">
+                            8.09
+                        </div>
+
+                        <div class="stat-label">
+                            Current CGPA
+                        </div>
+
+                    </div>
+
+                    <div class="stat">
+
+                        <div class="stat-number">
+                            3+
+                        </div>
+
+                        <div class="stat-label">
+                            Programming Languages
+                        </div>
+
+                    </div>
+
+                    <div class="stat">
+
+                        <div class="stat-number">
+                            ∞
+                        </div>
+
+                        <div class="stat-label">
+                            Learning Mindset
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             ABOUT
+        ====================================================== -->
+
+        <section id="about">
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+
+                    <div class="section-number">
+                        02 / ABOUT
+                    </div>
+
+                    <div>
+
+                        <h2 class="section-title">
+                            A student<br>
+                            who likes to build.
+                        </h2>
+
+                        <p class="section-subtitle">
+                            My journey in Computer Science is centered
+                            around learning concepts, writing code,
+                            solving problems and continuously improving.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="about-grid">
+
+                    <div class="about-card reveal">
+
+                        <p>
+                            I am a second-year B.Tech Computer Science
+                            and Engineering student with an interest in
+                            technology and software development.
+                        </p>
+
+                        <p>
+                            I enjoy exploring programming languages,
+                            solving coding problems and working on
+                            personal projects that help me understand
+                            technology through practice.
+                        </p>
+
+                        <p>
+                            My current focus includes Python, C++,
+                            Data Structures and Web Development.
+                            I am working toward becoming a skilled
+                            software engineer capable of creating
+                            useful and innovative solutions.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card reveal">
+
+                        <ul class="info-list">
+
+                            <li>
+                                <span class="info-label">
+                                    Education
+                                </span>
+
+                                <span class="info-value">
+                                    B.Tech CSE
+                                </span>
+                            </li>
+
+                            <li>
+                                <span class="info-label">
+                                    Year
+                                </span>
+
+                                <span class="info-value">
+                                    2nd Year
+                                </span>
+                            </li>
+
+                            <li>
+                                <span class="info-label">
+                                    University
+                                </span>
+
+                                <span class="info-value">
+                                    Vignan University
+                                </span>
+                            </li>
+
+                            <li>
+                                <span class="info-label">
+                                    CGPA
+                                </span>
+
+                                <span class="info-value">
+                                    8.09
+                                </span>
+                            </li>
+
+                            <li>
+                                <span class="info-label">
+                                    Focus
+                                </span>
+
+                                <span class="info-value">
+                                    Software Development
+                                </span>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             EDUCATION
+        ====================================================== -->
+
+        <section id="education">
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+
+                    <div class="section-number">
+                        03 / EDUCATION
+                    </div>
+
+                    <div>
+
+                        <h2 class="section-title">
+                            Academic<br>
+                            foundation.
+                        </h2>
+
+                        <p class="section-subtitle">
+                            The academic journey that shaped my
+                            foundation in computer science and
+                            problem solving.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="timeline">
+
+                    <!-- BTECH -->
+
+                    <div class="timeline-item reveal">
+
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-year">
+                            CURRENT
+                        </div>
+
+                        <h3>
+                            B.Tech — Computer Science & Engineering
+                        </h3>
+
+                        <p>
+                            Vignan University
+                        </p>
+
+                        <span class="score">
+                            CGPA: 8.09
+                        </span>
+
+                    </div>
+
+
+                    <!-- INTERMEDIATE -->
+
+                    <div class="timeline-item reveal">
+
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-year">
+                            PREVIOUS
+                        </div>
+
+                        <h3>
+                            Intermediate
+                        </h3>
+
+                        <p>
+                            Narayana Junior College
+                        </p>
+
+                        <span class="score">
+                            94%
+                        </span>
+
+                    </div>
+
+
+                    <!-- SCHOOL -->
+
+                    <div class="timeline-item reveal">
+
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-year">
+                            SCHOOL
+                        </div>
+
+                        <h3>
+                            School Education
+                        </h3>
+
+                        <p>
+                            Little Angels Public School — CBSE
+                        </p>
+
+                        <span class="score">
+                            79%
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SKILLS
+        ====================================================== -->
+
+        <section id="skills">
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+
+                    <div class="section-number">
+                        04 / SKILLS
+                    </div>
+
+                    <div>
+
+                        <h2 class="section-title">
+                            Tools I use<br>
+                            to learn & build.
+                        </h2>
+
+                        <p class="section-subtitle">
+                            My current technical foundation and areas
+                            I'm actively developing.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="skills-grid">
+
+                    <!-- C -->
+
+                    <div class="skill-card reveal">
+
+                        <div class="skill-icon">
+                            C
+                        </div>
+
+                        <h3>
+                            C Programming
+                        </h3>
+
+                        <p>
+                            Building a strong programming foundation
+                            through problem solving and data structures.
+                        </p>
+
+                        <div class="skill-tags">
+
+                            <span class="tag">
+                                Programming
+                            </span>
+
+                            <span class="tag">
+                                Logic
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- C++ -->
+
+                    <div class="skill-card reveal">
+
+                        <div class="skill-icon">
+                            C++
+                        </div>
+
+                        <h3>
+                            C++
+                        </h3>
+
+                        <p>
+                            Learning and applying C++ for programming,
+                            problem solving and data structures.
+                        </p>
+
+                        <div class="skill-tags">
+
+                            <span class="tag">
+                                C++
+                            </span>
+
+                            <span class="tag">
+                                DSA
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PYTHON -->
+
+                    <div class="skill-card reveal">
+
+                        <div class="skill-icon">
+                            Py
+                        </div>
+
+                        <h3>
+                            Python
+                        </h3>
+
+                        <p>
+                            Using Python to practice programming,
+                            algorithms and coding problems.
+                        </p>
+
+                        <div class="skill-tags">
+
+                            <span class="tag">
+                                Python
+                            </span>
+
+                            <span class="tag">
+                                Problem Solving
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- HTML -->
+
+                    <div class="skill-card reveal">
+
+                        <div class="skill-icon">
+                            &lt;/&gt;
+                        </div>
+
+                        <h3>
+                            Web Development
+                        </h3>
+
+                        <p>
+                            Building responsive web pages and
+                            experimenting with frontend development.
+                        </p>
+
+                        <div class="skill-tags">
+
+                            <span class="tag">
+                                HTML
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- DSA -->
+
+                    <div class="skill-card reveal">
+
+                        <div class="skill-icon">
+                            DS
+                        </div>
+
+                        <h3>
+                            Data Structures
+                        </h3>
+
+                        <p>
+                            Developing problem-solving skills through
+                            data structures and algorithmic practice.
+                        </p>
+
+                        <div class="skill-tags">
+
+                            <span class="tag">
+                                DSA
+                            </span>
+
+                            <span class="tag">
+                                Algorithms
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PROBLEM SOLVING -->
+
+                    <div class="skill-card reveal">
+
+                        <div class="skill-icon">
+                            ?
+                        </div>
+
+                        <h3>
+                            Problem Solving
+                        </h3>
+
+                        <p>
+                            Practicing coding challenges to improve
+                            logical thinking and programming ability.
+                        </p>
+
+                        <div class="skill-tags">
+
+                            <span class="tag">
+                                Logic
+                            </span>
+
+                            <span class="tag">
+                                Coding
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             PROJECTS
+        ====================================================== -->
+
+        <section id="projects">
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+
+                    <div class="section-number">
+                        05 / PROJECTS
+                    </div>
+
+                    <div>
+
+                        <h2 class="section-title">
+                            Things I'm<br>
+                            building.
+                        </h2>
+
+                        <p class="section-subtitle">
+                            A growing collection of work created while
+                            learning and experimenting with technology.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="project-card reveal">
+
+                    <div class="project-top">
+
+                        <div>
+
+                            <div class="project-number">
+                                PROJECT 01
+                            </div>
+
+                            <h3>
+                                Personal Portfolio Website
+                            </h3>
+
+                            <p>
+                                A personal developer portfolio created
+                                to showcase my education, technical
+                                skills, coding profiles and journey as
+                                a Computer Science student.
+                            </p>
+
+                        </div>
+
+                        <div class="project-status">
+                            CURRENT
+                        </div>
+
+                    </div>
+
+
+                    <div class="project-tech">
+
+                        <span class="tag">
+                            HTML
+                        </span>
+
+                        <span class="tag">
+                            CSS
+                        </span>
+
+                        <span class="tag">
+                            JavaScript
+                        </span>
+
+                        <span class="tag">
+                            GitHub Pages
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div style="height:20px;"></div>
+
+
+                <div class="empty-state reveal">
+
+                    <h3>
+                        More projects are coming.
+                    </h3>
+
+                    <p>
+                        I'm continuing to build and experiment with
+                        new ideas. This section will grow as I complete
+                        more projects.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CODING PROFILES
+        ====================================================== -->
+
+        <section id="profiles">
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+
+                    <div class="section-number">
+                        06 / PROFILES
+                    </div>
+
+                    <div>
+
+                        <h2 class="section-title">
+                            Find me<br>
+                            online.
+                        </h2>
+
+                        <p class="section-subtitle">
+                            Coding platforms and professional profiles
+                            where I share my learning journey.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="profiles-grid">
+
+                    <!-- GITHUB -->
+
+                    <a
+                        href="https://github.com/pranathimamidala"
+                        target="_blank"
+                        class="profile-card reveal"
+                    >
+
+                        <div class="profile-letter">
+                            GH
+                        </div>
+
+                        <h3>
+                            GitHub
+                        </h3>
+
+                        <p>
+                            Projects & code
+                        </p>
+
                     </a>
 
-                    <a href="#contact" class="btn btn-secondary">
-                        Contact Me
+
+                    <!-- LINKEDIN -->
+
+                    <a
+                        href="https://www.linkedin.com/in/pranathi-mamidala-a062503a6/"
+                        target="_blank"
+                        class="profile-card reveal"
+                    >
+
+                        <div class="profile-letter">
+                            in
+                        </div>
+
+                        <h3>
+                            LinkedIn
+                        </h3>
+
+                        <p>
+                            Professional profile
+                        </p>
+
+                    </a>
+
+
+                    <!-- LEETCODE -->
+
+                    <a
+                        href="https://leetcode.com/u/Pranathi_Mamidala/"
+                        target="_blank"
+                        class="profile-card reveal"
+                    >
+
+                        <div class="profile-letter">
+                            LC
+                        </div>
+
+                        <h3>
+                            LeetCode
+                        </h3>
+
+                        <p>
+                            Coding practice
+                        </p>
+
+                    </a>
+
+
+                    <!-- HACKERRANK -->
+
+                    <a
+                        href="https://www.hackerrank.com/profile/mamidalapranath2"
+                        target="_blank"
+                        class="profile-card reveal"
+                    >
+
+                        <div class="profile-letter">
+                            HR
+                        </div>
+
+                        <h3>
+                            HackerRank
+                        </h3>
+
+                        <p>
+                            Programming practice
+                        </p>
+
+                    </a>
+
+
+                    <!-- CODECHEF -->
+
+                    <a
+                        href="https://www.codechef.com/users/vu_251fa04691"
+                        target="_blank"
+                        class="profile-card reveal"
+                    >
+
+                        <div class="profile-letter">
+                            CC
+                        </div>
+
+                        <h3>
+                            CodeChef
+                        </h3>
+
+                        <p>
+                            Competitive coding
+                        </p>
+
                     </a>
 
                 </div>
 
             </div>
 
+        </section>
 
-            <div class="hero-card">
 
-                <!-- YOUR ACTUAL PHOTO -->
+        <!-- =====================================================
+             CERTIFICATIONS
+        ====================================================== -->
 
-                <div class="profile-circle">
-                    <img src="profile.jpg" alt="Pranathi Mamidala">
-                </div>
+        <section id="certifications">
 
-                <h3>Pranathi Mamidala</h3>
+            <div class="container">
 
-                <p>B.Tech CSE Student</p>
+                <div class="section-heading reveal">
 
-                <p>Vignan University</p>
+                    <div class="section-number">
+                        07 / JOURNEY
+                    </div>
 
-            </div>
+                    <div>
 
-        </div>
+                        <h2 class="section-title">
+                            Still<br>
+                            growing.
+                        </h2>
 
-    </section>
-
-
-    <!-- ABOUT -->
-
-    <section id="about">
-
-        <div class="section-container">
-
-            <div class="section-title">
-
-                <h2>About Me</h2>
-
-                <p>Getting to know the person behind the code.</p>
-
-            </div>
-
-
-            <div class="about-grid">
-
-                <div class="about-card">
-
-                    <h3>Who I Am</h3>
-
-                    <p>
-                        Hi, I'm Pranathi Mamidala, a second-year
-                        B.Tech Computer Science and Engineering student
-                        with a strong interest in technology and
-                        software development.
-                    </p>
-
-                    <br>
-
-                    <p>
-                        I enjoy learning new programming languages,
-                        solving coding problems, and building projects
-                        that strengthen my practical skills.
-                    </p>
-
-                    <br>
-
-                    <p>
-                        My current focus is on improving my knowledge
-                        of Python, C++, Data Structures and Web
-                        Development.
-                    </p>
-
-                </div>
-
-
-                <div class="about-card">
-
-                    <h3>Quick Info</h3>
-
-                    <ul class="info-list">
-
-                        <li>
-                            <strong>Career Goal:</strong><br>
-                            Full-Stack Software Developer
-                        </li>
-
-                        <li>
-                            <strong>Interests:</strong><br>
-                            Personal Projects & Problem Solving
-                        </li>
-
-                        <li>
-                            <strong>Strengths:</strong><br>
-                            Consistent & Dedicated
-                        </li>
-
-                        <li>
-                            <strong>Mindset:</strong><br>
-                            Self-Motivated & Always Learning
-                        </li>
-
-                    </ul>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- EDUCATION -->
-
-    <section id="education">
-
-        <div class="section-container">
-
-            <div class="section-title">
-
-                <h2>Education</h2>
-
-                <p>My academic journey.</p>
-
-            </div>
-
-
-            <div class="education-card">
-
-                <p class="education-year">Current</p>
-
-                <h3>
-                    B.Tech - Computer Science & Engineering
-                </h3>
-
-                <p>Vignan University</p>
-
-                <p>2nd Year | CGPA: 8.09</p>
-
-            </div>
-
-
-            <div class="education-card">
-
-                <p class="education-year">Intermediate</p>
-
-                <h3>Narayana Junior College</h3>
-
-                <p>Percentage: 94%</p>
-
-            </div>
-
-
-            <div class="education-card">
-
-                <p class="education-year">School</p>
-
-                <h3>
-                    Little Angels Public School - CBSE
-                </h3>
-
-                <p>Percentage: 79%</p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- SKILLS -->
-
-    <section id="skills">
-
-        <div class="section-container">
-
-            <div class="section-title">
-
-                <h2>Skills</h2>
-
-                <p>Technologies and areas I'm currently learning.</p>
-
-            </div>
-
-
-            <div class="skills-grid">
-
-                <div class="skill-card">
-
-                    <h3>Programming</h3>
-
-                    <div class="skill-tags">
-
-                        <span class="skill-tag">C</span>
-                        <span class="skill-tag">C++</span>
-                        <span class="skill-tag">Python</span>
+                        <p class="section-subtitle">
+                            My portfolio will evolve along with my
+                            skills, projects and experiences.
+                        </p>
 
                     </div>
 
                 </div>
 
 
-                <div class="skill-card">
+                <div class="empty-state reveal">
 
-                    <h3>Web Development</h3>
+                    <h3>
+                        Certifications & achievements
+                    </h3>
 
-                    <div class="skill-tags">
-
-                        <span class="skill-tag">HTML</span>
-                        <span class="skill-tag">CSS</span>
-
-                    </div>
+                    <p>
+                        This space is reserved for verified
+                        certifications, achievements, hackathons,
+                        internships and other milestones as they
+                        become part of my journey.
+                    </p>
 
                 </div>
 
+            </div>
 
-                <div class="skill-card">
+        </section>
 
-                    <h3>Currently Learning</h3>
 
-                    <div class="skill-tags">
+        <!-- =====================================================
+             CONTACT
+        ====================================================== -->
 
-                        <span class="skill-tag">Data Structures</span>
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">Web Development</span>
+        <section id="contact">
+
+            <div class="container">
+
+                <div class="contact-box reveal">
+
+                    <div class="eyebrow">
+                        08 / CONTACT
+                    </div>
+
+                    <h2>
+                        Let's connect.
+                    </h2>
+
+                    <p>
+                        Interested in connecting, discussing technology,
+                        coding or future opportunities? You can find me
+                        through the platforms below.
+                    </p>
+
+                    <div class="contact-links">
+
+                        <a
+                            href="mailto:mamidalapranathi07@gmail.com"
+                            class="contact-link"
+                        >
+                            Email
+                        </a>
+
+                        <a
+                            href="https://github.com/pranathimamidala"
+                            target="_blank"
+                            class="contact-link"
+                        >
+                            GitHub
+                        </a>
+
+                        <a
+                            href="https://www.linkedin.com/in/pranathi-mamidala-a062503a6/"
+                            target="_blank"
+                            class="contact-link"
+                        >
+                            LinkedIn
+                        </a>
 
                     </div>
 
@@ -793,190 +2162,110 @@
 
             </div>
 
-        </div>
+        </section>
 
-    </section>
+    </main>
 
 
-    <!-- PROJECTS -->
-
-    <section id="projects">
-
-        <div class="section-container">
-
-            <div class="section-title">
-
-                <h2>Projects</h2>
-
-                <p>Things I'm building and learning from.</p>
-
-            </div>
-
-
-            <div class="projects-grid">
-
-                <div class="project-card">
-
-                    <h3>Personal Portfolio Website</h3>
-
-                    <p>
-                        A personal portfolio website created to
-                        showcase my education, skills, coding
-                        profiles and future projects.
-                    </p>
-
-                    <span class="project-status">
-                        Current Project
-                    </span>
-
-                </div>
-
-
-                <div class="project-card">
-
-                    <h3>Future Projects</h3>
-
-                    <p>
-                        More projects will be added here as I build
-                        applications and strengthen my development
-                        skills.
-                    </p>
-
-                    <span class="project-status">
-                        Coming Soon
-                    </span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- CODING PROFILES -->
-
-    <section id="profiles">
-
-        <div class="section-container">
-
-            <div class="section-title">
-
-                <h2>Coding Profiles</h2>
-
-                <p>
-                    Find me across different developer platforms.
-                </p>
-
-            </div>
-
-
-            <div class="profiles-grid">
-
-                <a class="profile-link"
-                   href="https://github.com/pranathimamidala"
-                   target="_blank"
-                   rel="noopener noreferrer">
-
-                    <strong>GitHub</strong>
-                    <span>View →</span>
-
-                </a>
-
-
-                <a class="profile-link"
-                   href="https://www.linkedin.com/in/pranathi-mamidala-a062503a6/"
-                   target="_blank"
-                   rel="noopener noreferrer">
-
-                    <strong>LinkedIn</strong>
-                    <span>View →</span>
-
-                </a>
-
-
-                <a class="profile-link"
-                   href="https://leetcode.com/u/Pranathi_Mamidala/"
-                   target="_blank"
-                   rel="noopener noreferrer">
-
-                    <strong>LeetCode</strong>
-                    <span>View →</span>
-
-                </a>
-
-
-                <a class="profile-link"
-                   href="https://www.hackerrank.com/profile/mamidalapranath2"
-                   target="_blank"
-                   rel="noopener noreferrer">
-
-                    <strong>HackerRank</strong>
-                    <span>View →</span>
-
-                </a>
-
-
-                <a class="profile-link"
-                   href="https://www.codechef.com/users/vu_251fa04691"
-                   target="_blank"
-                   rel="noopener noreferrer">
-
-                    <strong>CodeChef</strong>
-                    <span>View →</span>
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- CONTACT -->
-
-    <section id="contact">
-
-        <div class="section-container">
-
-            <div class="contact-box">
-
-                <h2>Let's Connect</h2>
-
-                <p>
-                    I'm always interested in learning,
-                    collaborating and exploring new opportunities.
-                </p>
-
-                <a class="contact-email"
-                   href="mailto:mamidalapranathi07@gmail.com">
-
-                    Email Me
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- FOOTER -->
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
 
     <footer>
 
-        <p>
-            © 2026 Pranathi Mamidala
-        </p>
+        <div class="container">
 
-        <p>
-            Built with HTML & CSS
-        </p>
+            <div class="footer-inner">
+
+                <div>
+                    <span class="footer-brand">
+                        Pranathi Mamidala
+                    </span>
+
+                    <span>
+                        &nbsp;·&nbsp; Aspiring Software Engineer
+                    </span>
+                </div>
+
+                <div>
+                    © 2026 Pranathi Mamidala
+                </div>
+
+            </div>
+
+        </div>
 
     </footer>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script>
+
+        /* MOBILE MENU */
+
+        const menuBtn = document.getElementById("menuBtn");
+        const navLinks = document.getElementById("navLinks");
+
+        menuBtn.addEventListener("click", () => {
+
+            navLinks.classList.toggle("open");
+
+        });
+
+
+        /* CLOSE MENU AFTER CLICK */
+
+        document.querySelectorAll(".nav-links a").forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                navLinks.classList.remove("open");
+
+            });
+
+        });
+
+
+        /* SCROLL REVEAL ANIMATION */
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+        const revealObserver =
+            new IntersectionObserver(
+                (entries) => {
+
+                    entries.forEach(entry => {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("active");
+
+                            revealObserver.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+
+        revealElements.forEach(element => {
+
+            revealObserver.observe(element);
+
+        });
+
+    </script>
 
 </body>
 </html>
