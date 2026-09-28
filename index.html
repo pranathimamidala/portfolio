@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pranathi Mamidala | Aspiring Software Engineer</title>
+
+    <meta name="description"
+          content="Portfolio of Pranathi Mamidala, a B.Tech Computer Science and Engineering student and aspiring software engineer.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f8faff;
+            color: #202124;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .nav-container {
+            max-width: 1150px;
+            margin: auto;
+            padding: 18px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1a73e8;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #3c4043;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #1a73e8;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 70px 25px;
+            background:
+                radial-gradient(circle at 80% 20%, #dbeafe 0, transparent 30%),
+                radial-gradient(circle at 10% 80%, #e0e7ff 0, transparent 30%),
+                #f8faff;
+        }
+
+        .hero-container {
+            max-width: 1100px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(45px, 7vw, 75px);
+            line-height: 1.05;
+            margin-bottom: 20px;
+            color: #202124;
+        }
+
+        .hero-text h1 span {
+            color: #1a73e8;
+        }
+
+        .hero-text h2 {
+            font-size: 24px;
+            font-weight: 500;
+            color: #5f6368;
+            margin-bottom: 18px;
+        }
+
+        .hero-text p {
+            max-width: 600px;
+            font-size: 18px;
+            color: #5f6368;
+            margin-bottom: 30px;
+        }
+
+        .tagline {
+            color: #1a73e8 !important;
+            font-weight: 600;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #1a73e8;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1557b0;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            border: 1px solid #dadce0;
+            color: #202124;
+            background: white;
+        }
+
+        .btn-secondary:hover {
+            border-color: #1a73e8;
+            color: #1a73e8;
+        }
+
+        .hero-card {
+            background: white;
+            padding: 35px;
+            border-radius: 25px;
+            box-shadow: 0 15px 45px rgba(60, 64, 67, 0.12);
+            text-align: center;
+        }
+
+        .profile-circle {
+            width: 190px;
+            height: 190px;
+            margin: auto auto 25px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1a73e8, #8ab4f8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 65px;
+            font-weight: bold;
+        }
+
+        .hero-card h3 {
+            font-size: 25px;
+            margin-bottom: 8px;
+        }
+
+        .hero-card p {
+            color: #5f6368;
+        }
+
+        /* GENERAL */
+
+        section {
+            padding: 90px 25px;
+        }
+
+        .section-container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #5f6368;
+        }
+
+        /* ABOUT */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 40px;
+        }
+
+        .about-card {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            border: 1px solid #e8eaed;
+        }
+
+        .about-card h3 {
+            color: #1a73e8;
+            margin-bottom: 15px;
+        }
+
+        .about-card p {
+            color: #5f6368;
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .info-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* EDUCATION */
+
+        .education-card {
+            background: white;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 18px;
+            border-left: 5px solid #1a73e8;
+            box-shadow: 0 5px 20px rgba(60, 64, 67, 0.07);
+        }
+
+        .education-card h3 {
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+
+        .education-card p {
+            color: #5f6368;
+        }
+
+        .education-year {
+            color: #1a73e8 !important;
+            font-weight: bold;
+        }
+
+        /* SKILLS */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            border: 1px solid #e8eaed;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(60, 64, 67, 0.1);
+        }
+
+        .skill-card h3 {
+            color: #1a73e8;
+            margin-bottom: 15px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: #e8f0fe;
+            color: #1967d2;
+            padding: 7px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        /* PROJECTS */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            border: 1px solid #e8eaed;
+        }
+
+        .project-card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .project-card p {
+            color: #5f6368;
+            margin-bottom: 20px;
+        }
+
+        .project-status {
+            display: inline-block;
+            padding: 6px 12px;
+            background: #fff3cd;
+            color: #856404;
+            border-radius: 15px;
+            font-size: 13px;
+        }
+
+        /* CODING PROFILES */
+
+        .profiles-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .profile-link {
+            background: white;
+            padding: 22px;
+            border-radius: 15px;
+            text-decoration: none;
+            color: #202124;
+            border: 1px solid #e8eaed;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.3s;
+        }
+
+        .profile-link:hover {
+            border-color: #1a73e8;
+            transform: translateX(5px);
+        }
+
+        .profile-link span {
+            color: #1a73e8;
+        }
+
+        /* CONTACT */
+
+        .contact-box {
+            max-width: 750px;
+            margin: auto;
+            background: #1a73e8;
+            color: white;
+            padding: 50px;
+            border-radius: 25px;
+            text-align: center;
+        }
+
+        .contact-box h2 {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            margin-bottom: 25px;
+            opacity: 0.95;
+        }
+
+        .contact-email {
+            display: inline-block;
+            background: white;
+            color: #1a73e8;
+            padding: 13px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #202124;
+            color: #bdc1c6;
+        }
+
+        footer a {
+            color: #8ab4f8;
+            text-decoration: none;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero-container,
+            .about-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .profiles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding-top: 50px;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 65px 18px;
+            }
+
+            .hero-card {
+                padding: 25px;
+            }
+
+            .contact-box {
+                padding: 35px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+    <div class="nav-container">
+
+        <div class="logo">PM.</div>
+
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#profiles">Profiles</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+    </div>
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-container">
+
+        <div class="hero-text">
+
+            <h2>Hello, I'm</h2>
+
+            <h1>
+                Pranathi<br>
+                <span>Mamidala</span>
+            </h1>
+
+            <h2>Aspiring Software Engineer</h2>
+
+            <p class="tagline">
+                Learning. Building. Growing Every Day.
+            </p>
+
+            <p>
+                I'm a B.Tech Computer Science and Engineering student
+                passionate about programming, problem solving and
+                building useful technology.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#projects" class="btn btn-primary">
+                    View My Work
+                </a>
+
+                <a href="#contact" class="btn btn-secondary">
+                    Contact Me
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-card">
+
+            <div class="profile-circle">
+                PM
+            </div>
+
+            <h3>Pranathi Mamidala</h3>
+
+            <p>B.Tech CSE Student</p>
+
+            <p>Vignan University</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <div class="section-container">
+
+        <div class="section-title">
+
+            <h2>About Me</h2>
+
+            <p>Getting to know the person behind the code.</p>
+
+        </div>
+
+
+        <div class="about-grid">
+
+            <div class="about-card">
+
+                <h3>Who I Am</h3>
+
+                <p>
+                    Hi, I'm Pranathi Mamidala, a second-year B.Tech
+                    Computer Science and Engineering student with a
+                    strong interest in technology and software
+                    development.
+                </p>
+
+                <br>
+
+                <p>
+                    I enjoy learning new programming languages,
+                    solving coding problems, and building projects
+                    that strengthen my practical skills. I believe
+                    in continuous learning and enjoy taking on
+                    challenges that help me grow as a developer.
+                </p>
+
+                <br>
+
+                <p>
+                    My current focus is on improving my knowledge of
+                    Python, C++, Data Structures and Web Development.
+                </p>
+
+            </div>
+
+
+            <div class="about-card">
+
+                <h3>Quick Info</h3>
+
+                <ul class="info-list">
+
+                    <li>
+                        <strong>Career Goal:</strong><br>
+                        Full-Stack Software Developer
+                    </li>
+
+                    <li>
+                        <strong>Interests:</strong><br>
+                        Personal Projects & Problem Solving
+                    </li>
+
+                    <li>
+                        <strong>Strengths:</strong><br>
+                        Consistent & Dedicated
+                    </li>
+
+                    <li>
+                        <strong>Mindset:</strong><br>
+                        Self-Motivated & Always Learning
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EDUCATION -->
+
+<section id="education">
+
+    <div class="section-container">
+
+        <div class="section-title">
+
+            <h2>Education</h2>
+
+            <p>My academic journey.</p>
+
+        </div>
+
+
+        <div class="education-card">
+
+            <p class="education-year">Current</p>
+
+            <h3>B.Tech - Computer Science & Engineering</h3>
+
+            <p>Vignan University</p>
+
+            <p>2nd Year | CGPA: 8.09</p>
+
+        </div>
+
+
+        <div class="education-card">
+
+            <p class="education-year">Intermediate</p>
+
+            <h3>Narayana Junior College</h3>
+
+            <p>Percentage: 94%</p>
+
+        </div>
+
+
+        <div class="education-card">
+
+            <p class="education-year">School</p>
+
+            <h3>Little Angels Public School - CBSE</h3>
+
+            <p>Percentage: 79%</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+    <div class="section-container">
+
+        <div class="section-title">
+
+            <h2>Skills</h2>
+
+            <p>Technologies and areas I'm currently learning.</p>
+
+        </div>
+
+
+        <div class="skills-grid">
+
+            <div class="skill-card">
+
+                <h3>Programming</h3>
+
+                <div class="skill-tags">
+
+                    <span class="skill-tag">C</span>
+                    <span class="skill-tag">C++</span>
+                    <span class="skill-tag">Python</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <h3>Web Development</h3>
+
+                <div class="skill-tags">
+
+                    <span class="skill-tag">HTML</span>
+                    <span class="skill-tag">CSS</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <h3>Currently Learning</h3>
+
+                <div class="skill-tags">
+
+                    <span class="skill-tag">Data Structures</span>
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">Web Development</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+    <div class="section-container">
+
+        <div class="section-title">
+
+            <h2>Projects</h2>
+
+            <p>Things I'm building and learning from.</p>
+
+        </div>
+
+
+        <div class="projects-grid">
+
+            <div class="project-card">
+
+                <h3>Portfolio Website</h3>
+
+                <p>
+                    A personal portfolio website created to
+                    showcase my skills, education, coding profiles
+                    and future projects.
+                </p>
+
+                <span class="project-status">
+                    In Progress
+                </span>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <h3>Future Projects</h3>
+
+                <p>
+                    I'm currently working on strengthening my
+                    programming and development skills. More
+                    projects will be added here as I build them.
+                </p>
+
+                <span class="project-status">
+                    Coming Soon
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CODING PROFILES -->
+
+<section id="profiles">
+
+    <div class="section-container">
+
+        <div class="section-title">
+
+            <h2>Coding Profiles</h2>
+
+            <p>Find me across different developer platforms.</p>
+
+        </div>
+
+
+        <div class="profiles-grid">
+
+            <a class="profile-link"
+               href="https://github.com/pranathimamidala"
+               target="_blank">
+
+                <strong>GitHub</strong>
+
+                <span>View →</span>
+
+            </a>
+
+
+            <a class="profile-link"
+               href="https://www.linkedin.com/in/pranathi-mamidala-a062503a6/"
+               target="_blank">
+
+                <strong>LinkedIn</strong>
+
+                <span>View →</span>
+
+            </a>
+
+
+            <a class="profile-link"
+               href="https://leetcode.com/u/Pranathi_Mamidala/"
+               target="_blank">
+
+                <strong>LeetCode</strong>
+
+                <span>View →</span>
+
+            </a>
+
+
+            <a class="profile-link"
+               href="https://www.hackerrank.com/profile/mamidalapranath2"
+               target="_blank">
+
+                <strong>HackerRank</strong>
+
+                <span>View →</span>
+
+            </a>
+
+
+            <a class="profile-link"
+               href="https://www.codechef.com/users/vu_251fa04691"
+               target="_blank">
+
+                <strong>CodeChef</strong>
+
+                <span>View →</span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <div class="section-container">
+
+        <div class="contact-box">
+
+            <h2>Let's Connect</h2>
+
+            <p>
+                I'm always interested in learning, collaborating
+                and exploring new opportunities.
+            </p>
+
+            <a class="contact-email"
+               href="mailto:mamidalapranathi07@gmail.com">
+
+                Email Me
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026 Pranathi Mamidala. All rights reserved.
+    </p>
+
+    <p>
+        Built with HTML & CSS
+    </p>
+
+</footer>
+
+
+</body>
+</html>
