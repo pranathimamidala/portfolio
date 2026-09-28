@@ -10,6 +10,7 @@
           content="Portfolio of Pranathi Mamidala, a B.Tech Computer Science and Engineering student and aspiring software engineer.">
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -24,13 +25,13 @@
             line-height: 1.6;
         }
 
-        /* NAVBAR */
+        /* NAVIGATION */
 
         nav {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255,255,255,0.96);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid #e5e7eb;
         }
@@ -45,14 +46,14 @@
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 25px;
             font-weight: bold;
             color: #1a73e8;
         }
 
         .nav-links {
             display: flex;
-            gap: 28px;
+            gap: 26px;
             list-style: none;
         }
 
@@ -73,10 +74,9 @@
             min-height: 90vh;
             display: flex;
             align-items: center;
-            justify-content: center;
             padding: 70px 25px;
             background:
-                radial-gradient(circle at 80% 20%, #dbeafe 0, transparent 30%),
+                radial-gradient(circle at 85% 20%, #dbeafe 0, transparent 30%),
                 radial-gradient(circle at 10% 80%, #e0e7ff 0, transparent 30%),
                 #f8faff;
         }
@@ -84,40 +84,47 @@
         .hero-container {
             max-width: 1100px;
             width: 100%;
+            margin: auto;
             display: grid;
             grid-template-columns: 1.4fr 1fr;
             gap: 60px;
             align-items: center;
         }
 
+        .hero-text h2:first-child {
+            color: #5f6368;
+            font-size: 22px;
+            font-weight: 500;
+        }
+
         .hero-text h1 {
             font-size: clamp(45px, 7vw, 75px);
             line-height: 1.05;
-            margin-bottom: 20px;
-            color: #202124;
+            margin: 10px 0 20px;
         }
 
         .hero-text h1 span {
             color: #1a73e8;
         }
 
-        .hero-text h2 {
-            font-size: 24px;
-            font-weight: 500;
+        .hero-text .role {
+            font-size: 25px;
             color: #5f6368;
-            margin-bottom: 18px;
-        }
-
-        .hero-text p {
-            max-width: 600px;
-            font-size: 18px;
-            color: #5f6368;
-            margin-bottom: 30px;
+            margin-bottom: 12px;
         }
 
         .tagline {
-            color: #1a73e8 !important;
+            color: #1a73e8;
             font-weight: 600;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .hero-description {
+            max-width: 620px;
+            font-size: 18px;
+            color: #5f6368;
+            margin-bottom: 30px;
         }
 
         .buttons {
@@ -156,38 +163,42 @@
             color: #1a73e8;
         }
 
+        /* PROFILE CARD */
+
         .hero-card {
             background: white;
             padding: 35px;
             border-radius: 25px;
-            box-shadow: 0 15px 45px rgba(60, 64, 67, 0.12);
+            box-shadow: 0 15px 45px rgba(60,64,67,0.12);
             text-align: center;
         }
 
         .profile-circle {
-            width: 190px;
-            height: 190px;
+            width: 210px;
+            height: 210px;
             margin: auto auto 25px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #1a73e8, #8ab4f8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 65px;
-            font-weight: bold;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(26,115,232,0.20);
+        }
+
+        .profile-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .hero-card h3 {
             font-size: 25px;
-            margin-bottom: 8px;
+            margin-bottom: 7px;
         }
 
         .hero-card p {
             color: #5f6368;
         }
 
-        /* GENERAL */
+        /* GENERAL SECTIONS */
 
         section {
             padding: 90px 25px;
@@ -200,7 +211,7 @@
 
         .section-title {
             text-align: center;
-            margin-bottom: 55px;
+            margin-bottom: 50px;
         }
 
         .section-title h2 {
@@ -217,7 +228,7 @@
         .about-grid {
             display: grid;
             grid-template-columns: 1.5fr 1fr;
-            gap: 40px;
+            gap: 35px;
         }
 
         .about-card {
@@ -230,6 +241,7 @@
         .about-card h3 {
             color: #1a73e8;
             margin-bottom: 15px;
+            font-size: 23px;
         }
 
         .about-card p {
@@ -241,7 +253,7 @@
         }
 
         .info-list li {
-            padding: 12px 0;
+            padding: 13px 0;
             border-bottom: 1px solid #eee;
         }
 
@@ -257,7 +269,7 @@
             margin-bottom: 20px;
             border-radius: 18px;
             border-left: 5px solid #1a73e8;
-            box-shadow: 0 5px 20px rgba(60, 64, 67, 0.07);
+            box-shadow: 0 5px 20px rgba(60,64,67,0.07);
         }
 
         .education-card h3 {
@@ -292,7 +304,7 @@
 
         .skill-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(60, 64, 67, 0.1);
+            box-shadow: 0 10px 30px rgba(60,64,67,0.1);
         }
 
         .skill-card h3 {
@@ -419,11 +431,6 @@
             color: #bdc1c6;
         }
 
-        footer a {
-            color: #8ab4f8;
-            text-decoration: none;
-        }
-
         /* MOBILE */
 
         @media (max-width: 800px) {
@@ -453,15 +460,11 @@
                 grid-template-columns: 1fr;
             }
 
-            .hero {
-                padding-top: 50px;
-            }
-
             .hero-text {
                 text-align: center;
             }
 
-            .hero-text p {
+            .hero-description {
                 margin-left: auto;
                 margin-right: auto;
             }
@@ -485,481 +488,495 @@
                 padding: 25px;
             }
 
+            .profile-circle {
+                width: 180px;
+                height: 180px;
+            }
+
             .contact-box {
                 padding: 35px 20px;
             }
         }
+
     </style>
 </head>
 
 <body>
 
-<!-- NAVIGATION -->
+    <!-- NAVIGATION -->
 
-<nav>
-    <div class="nav-container">
+    <nav>
+        <div class="nav-container">
 
-        <div class="logo">PM.</div>
+            <div class="logo">PM.</div>
 
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#profiles">Profiles</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#profiles">Profiles</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
 
-    </div>
-</nav>
+        </div>
+    </nav>
 
 
-<!-- HERO -->
+    <!-- HOME -->
 
-<section class="hero" id="home">
+    <section class="hero" id="home">
 
-    <div class="hero-container">
+        <div class="hero-container">
 
-        <div class="hero-text">
+            <div class="hero-text">
 
-            <h2>Hello, I'm</h2>
+                <h2>Hello, I'm</h2>
 
-            <h1>
-                Pranathi<br>
-                <span>Mamidala</span>
-            </h1>
+                <h1>
+                    Pranathi<br>
+                    <span>Mamidala</span>
+                </h1>
 
-            <h2>Aspiring Software Engineer</h2>
+                <h2 class="role">
+                    Aspiring Software Engineer
+                </h2>
 
-            <p class="tagline">
-                Learning. Building. Growing Every Day.
-            </p>
+                <p class="tagline">
+                    Learning. Building. Growing Every Day.
+                </p>
 
-            <p>
-                I'm a B.Tech Computer Science and Engineering student
-                passionate about programming, problem solving and
-                building useful technology.
-            </p>
+                <p class="hero-description">
+                    I'm a second-year B.Tech Computer Science and
+                    Engineering student passionate about programming,
+                    problem solving and building useful technology.
+                </p>
 
-            <div class="buttons">
+                <div class="buttons">
 
-                <a href="#projects" class="btn btn-primary">
-                    View My Work
+                    <a href="#projects" class="btn btn-primary">
+                        View My Work
+                    </a>
+
+                    <a href="#contact" class="btn btn-secondary">
+                        Contact Me
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-card">
+
+                <!-- YOUR ACTUAL PHOTO -->
+
+                <div class="profile-circle">
+                    <img src="profile.jpg" alt="Pranathi Mamidala">
+                </div>
+
+                <h3>Pranathi Mamidala</h3>
+
+                <p>B.Tech CSE Student</p>
+
+                <p>Vignan University</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section id="about">
+
+        <div class="section-container">
+
+            <div class="section-title">
+
+                <h2>About Me</h2>
+
+                <p>Getting to know the person behind the code.</p>
+
+            </div>
+
+
+            <div class="about-grid">
+
+                <div class="about-card">
+
+                    <h3>Who I Am</h3>
+
+                    <p>
+                        Hi, I'm Pranathi Mamidala, a second-year
+                        B.Tech Computer Science and Engineering student
+                        with a strong interest in technology and
+                        software development.
+                    </p>
+
+                    <br>
+
+                    <p>
+                        I enjoy learning new programming languages,
+                        solving coding problems, and building projects
+                        that strengthen my practical skills.
+                    </p>
+
+                    <br>
+
+                    <p>
+                        My current focus is on improving my knowledge
+                        of Python, C++, Data Structures and Web
+                        Development.
+                    </p>
+
+                </div>
+
+
+                <div class="about-card">
+
+                    <h3>Quick Info</h3>
+
+                    <ul class="info-list">
+
+                        <li>
+                            <strong>Career Goal:</strong><br>
+                            Full-Stack Software Developer
+                        </li>
+
+                        <li>
+                            <strong>Interests:</strong><br>
+                            Personal Projects & Problem Solving
+                        </li>
+
+                        <li>
+                            <strong>Strengths:</strong><br>
+                            Consistent & Dedicated
+                        </li>
+
+                        <li>
+                            <strong>Mindset:</strong><br>
+                            Self-Motivated & Always Learning
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- EDUCATION -->
+
+    <section id="education">
+
+        <div class="section-container">
+
+            <div class="section-title">
+
+                <h2>Education</h2>
+
+                <p>My academic journey.</p>
+
+            </div>
+
+
+            <div class="education-card">
+
+                <p class="education-year">Current</p>
+
+                <h3>
+                    B.Tech - Computer Science & Engineering
+                </h3>
+
+                <p>Vignan University</p>
+
+                <p>2nd Year | CGPA: 8.09</p>
+
+            </div>
+
+
+            <div class="education-card">
+
+                <p class="education-year">Intermediate</p>
+
+                <h3>Narayana Junior College</h3>
+
+                <p>Percentage: 94%</p>
+
+            </div>
+
+
+            <div class="education-card">
+
+                <p class="education-year">School</p>
+
+                <h3>
+                    Little Angels Public School - CBSE
+                </h3>
+
+                <p>Percentage: 79%</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+
+    <section id="skills">
+
+        <div class="section-container">
+
+            <div class="section-title">
+
+                <h2>Skills</h2>
+
+                <p>Technologies and areas I'm currently learning.</p>
+
+            </div>
+
+
+            <div class="skills-grid">
+
+                <div class="skill-card">
+
+                    <h3>Programming</h3>
+
+                    <div class="skill-tags">
+
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">Python</span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <h3>Web Development</h3>
+
+                    <div class="skill-tags">
+
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <h3>Currently Learning</h3>
+
+                    <div class="skill-tags">
+
+                        <span class="skill-tag">Data Structures</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Web Development</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+
+    <section id="projects">
+
+        <div class="section-container">
+
+            <div class="section-title">
+
+                <h2>Projects</h2>
+
+                <p>Things I'm building and learning from.</p>
+
+            </div>
+
+
+            <div class="projects-grid">
+
+                <div class="project-card">
+
+                    <h3>Personal Portfolio Website</h3>
+
+                    <p>
+                        A personal portfolio website created to
+                        showcase my education, skills, coding
+                        profiles and future projects.
+                    </p>
+
+                    <span class="project-status">
+                        Current Project
+                    </span>
+
+                </div>
+
+
+                <div class="project-card">
+
+                    <h3>Future Projects</h3>
+
+                    <p>
+                        More projects will be added here as I build
+                        applications and strengthen my development
+                        skills.
+                    </p>
+
+                    <span class="project-status">
+                        Coming Soon
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CODING PROFILES -->
+
+    <section id="profiles">
+
+        <div class="section-container">
+
+            <div class="section-title">
+
+                <h2>Coding Profiles</h2>
+
+                <p>
+                    Find me across different developer platforms.
+                </p>
+
+            </div>
+
+
+            <div class="profiles-grid">
+
+                <a class="profile-link"
+                   href="https://github.com/pranathimamidala"
+                   target="_blank"
+                   rel="noopener noreferrer">
+
+                    <strong>GitHub</strong>
+                    <span>View →</span>
+
                 </a>
 
-                <a href="#contact" class="btn btn-secondary">
-                    Contact Me
+
+                <a class="profile-link"
+                   href="https://www.linkedin.com/in/pranathi-mamidala-a062503a6/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+
+                    <strong>LinkedIn</strong>
+                    <span>View →</span>
+
+                </a>
+
+
+                <a class="profile-link"
+                   href="https://leetcode.com/u/Pranathi_Mamidala/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+
+                    <strong>LeetCode</strong>
+                    <span>View →</span>
+
+                </a>
+
+
+                <a class="profile-link"
+                   href="https://www.hackerrank.com/profile/mamidalapranath2"
+                   target="_blank"
+                   rel="noopener noreferrer">
+
+                    <strong>HackerRank</strong>
+                    <span>View →</span>
+
+                </a>
+
+
+                <a class="profile-link"
+                   href="https://www.codechef.com/users/vu_251fa04691"
+                   target="_blank"
+                   rel="noopener noreferrer">
+
+                    <strong>CodeChef</strong>
+                    <span>View →</span>
+
                 </a>
 
             </div>
 
         </div>
 
-
-        <div class="hero-card">
-
-            <div class="profile-circle">
-                PM
-            </div>
-
-            <h3>Pranathi Mamidala</h3>
-
-            <p>B.Tech CSE Student</p>
-
-            <p>Vignan University</p>
-
-        </div>
-
-    </div>
-
-</section>
+    </section>
 
 
-<!-- ABOUT -->
+    <!-- CONTACT -->
 
-<section id="about">
+    <section id="contact">
 
-    <div class="section-container">
+        <div class="section-container">
 
-        <div class="section-title">
+            <div class="contact-box">
 
-            <h2>About Me</h2>
-
-            <p>Getting to know the person behind the code.</p>
-
-        </div>
-
-
-        <div class="about-grid">
-
-            <div class="about-card">
-
-                <h3>Who I Am</h3>
+                <h2>Let's Connect</h2>
 
                 <p>
-                    Hi, I'm Pranathi Mamidala, a second-year B.Tech
-                    Computer Science and Engineering student with a
-                    strong interest in technology and software
-                    development.
+                    I'm always interested in learning,
+                    collaborating and exploring new opportunities.
                 </p>
 
-                <br>
+                <a class="contact-email"
+                   href="mailto:mamidalapranathi07@gmail.com">
 
-                <p>
-                    I enjoy learning new programming languages,
-                    solving coding problems, and building projects
-                    that strengthen my practical skills. I believe
-                    in continuous learning and enjoy taking on
-                    challenges that help me grow as a developer.
-                </p>
+                    Email Me
 
-                <br>
-
-                <p>
-                    My current focus is on improving my knowledge of
-                    Python, C++, Data Structures and Web Development.
-                </p>
-
-            </div>
-
-
-            <div class="about-card">
-
-                <h3>Quick Info</h3>
-
-                <ul class="info-list">
-
-                    <li>
-                        <strong>Career Goal:</strong><br>
-                        Full-Stack Software Developer
-                    </li>
-
-                    <li>
-                        <strong>Interests:</strong><br>
-                        Personal Projects & Problem Solving
-                    </li>
-
-                    <li>
-                        <strong>Strengths:</strong><br>
-                        Consistent & Dedicated
-                    </li>
-
-                    <li>
-                        <strong>Mindset:</strong><br>
-                        Self-Motivated & Always Learning
-                    </li>
-
-                </ul>
+                </a>
 
             </div>
 
         </div>
 
-    </div>
+    </section>
 
-</section>
 
+    <!-- FOOTER -->
 
-<!-- EDUCATION -->
+    <footer>
 
-<section id="education">
+        <p>
+            © 2026 Pranathi Mamidala
+        </p>
 
-    <div class="section-container">
+        <p>
+            Built with HTML & CSS
+        </p>
 
-        <div class="section-title">
-
-            <h2>Education</h2>
-
-            <p>My academic journey.</p>
-
-        </div>
-
-
-        <div class="education-card">
-
-            <p class="education-year">Current</p>
-
-            <h3>B.Tech - Computer Science & Engineering</h3>
-
-            <p>Vignan University</p>
-
-            <p>2nd Year | CGPA: 8.09</p>
-
-        </div>
-
-
-        <div class="education-card">
-
-            <p class="education-year">Intermediate</p>
-
-            <h3>Narayana Junior College</h3>
-
-            <p>Percentage: 94%</p>
-
-        </div>
-
-
-        <div class="education-card">
-
-            <p class="education-year">School</p>
-
-            <h3>Little Angels Public School - CBSE</h3>
-
-            <p>Percentage: 79%</p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- SKILLS -->
-
-<section id="skills">
-
-    <div class="section-container">
-
-        <div class="section-title">
-
-            <h2>Skills</h2>
-
-            <p>Technologies and areas I'm currently learning.</p>
-
-        </div>
-
-
-        <div class="skills-grid">
-
-            <div class="skill-card">
-
-                <h3>Programming</h3>
-
-                <div class="skill-tags">
-
-                    <span class="skill-tag">C</span>
-                    <span class="skill-tag">C++</span>
-                    <span class="skill-tag">Python</span>
-
-                </div>
-
-            </div>
-
-
-            <div class="skill-card">
-
-                <h3>Web Development</h3>
-
-                <div class="skill-tags">
-
-                    <span class="skill-tag">HTML</span>
-                    <span class="skill-tag">CSS</span>
-
-                </div>
-
-            </div>
-
-
-            <div class="skill-card">
-
-                <h3>Currently Learning</h3>
-
-                <div class="skill-tags">
-
-                    <span class="skill-tag">Data Structures</span>
-                    <span class="skill-tag">Java</span>
-                    <span class="skill-tag">Web Development</span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- PROJECTS -->
-
-<section id="projects">
-
-    <div class="section-container">
-
-        <div class="section-title">
-
-            <h2>Projects</h2>
-
-            <p>Things I'm building and learning from.</p>
-
-        </div>
-
-
-        <div class="projects-grid">
-
-            <div class="project-card">
-
-                <h3>Portfolio Website</h3>
-
-                <p>
-                    A personal portfolio website created to
-                    showcase my skills, education, coding profiles
-                    and future projects.
-                </p>
-
-                <span class="project-status">
-                    In Progress
-                </span>
-
-            </div>
-
-
-            <div class="project-card">
-
-                <h3>Future Projects</h3>
-
-                <p>
-                    I'm currently working on strengthening my
-                    programming and development skills. More
-                    projects will be added here as I build them.
-                </p>
-
-                <span class="project-status">
-                    Coming Soon
-                </span>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- CODING PROFILES -->
-
-<section id="profiles">
-
-    <div class="section-container">
-
-        <div class="section-title">
-
-            <h2>Coding Profiles</h2>
-
-            <p>Find me across different developer platforms.</p>
-
-        </div>
-
-
-        <div class="profiles-grid">
-
-            <a class="profile-link"
-               href="https://github.com/pranathimamidala"
-               target="_blank">
-
-                <strong>GitHub</strong>
-
-                <span>View →</span>
-
-            </a>
-
-
-            <a class="profile-link"
-               href="https://www.linkedin.com/in/pranathi-mamidala-a062503a6/"
-               target="_blank">
-
-                <strong>LinkedIn</strong>
-
-                <span>View →</span>
-
-            </a>
-
-
-            <a class="profile-link"
-               href="https://leetcode.com/u/Pranathi_Mamidala/"
-               target="_blank">
-
-                <strong>LeetCode</strong>
-
-                <span>View →</span>
-
-            </a>
-
-
-            <a class="profile-link"
-               href="https://www.hackerrank.com/profile/mamidalapranath2"
-               target="_blank">
-
-                <strong>HackerRank</strong>
-
-                <span>View →</span>
-
-            </a>
-
-
-            <a class="profile-link"
-               href="https://www.codechef.com/users/vu_251fa04691"
-               target="_blank">
-
-                <strong>CodeChef</strong>
-
-                <span>View →</span>
-
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- CONTACT -->
-
-<section id="contact">
-
-    <div class="section-container">
-
-        <div class="contact-box">
-
-            <h2>Let's Connect</h2>
-
-            <p>
-                I'm always interested in learning, collaborating
-                and exploring new opportunities.
-            </p>
-
-            <a class="contact-email"
-               href="mailto:mamidalapranathi07@gmail.com">
-
-                Email Me
-
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- FOOTER -->
-
-<footer>
-
-    <p>
-        © 2026 Pranathi Mamidala. All rights reserved.
-    </p>
-
-    <p>
-        Built with HTML & CSS
-    </p>
-
-</footer>
-
+    </footer>
 
 </body>
 </html>
